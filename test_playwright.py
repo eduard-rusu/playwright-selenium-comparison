@@ -6,7 +6,7 @@ from playwright.sync_api import expect
 @pytest.fixture(autouse=True)
 def browser():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, args=['--start-maximized'])
+        browser = p.chromium.launch(headless=False, args=['--start-maximized'], channel='chrome')
         yield browser.new_context(no_viewport=True)
         browser.close()
 
